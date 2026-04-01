@@ -649,6 +649,71 @@ footer span { color: var(--gold); }
 
 @media (max-width: 768px) { .hero-photo { height: 200px; } }
 
+/* ── METRO LINE BADGES ── */
+.metro {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  vertical-align: middle;
+  margin: 0 2px;
+}
+
+.metro-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: white;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.metro-name {
+  font-size: 0.78rem;
+  font-weight: 600;
+  font-family: 'Crimson Pro', serif;
+}
+
+/* Tokyo Metro */
+.metro-G .metro-circle { background: #F39700; }
+.metro-G .metro-name   { color: #F39700; }
+.metro-M .metro-circle { background: #F62E36; }
+.metro-M .metro-name   { color: #F62E36; }
+.metro-H .metro-circle { background: #8C8C8C; }
+.metro-H .metro-name   { color: #8C8C8C; }
+.metro-T .metro-circle { background: #009BBF; }
+.metro-T .metro-name   { color: #009BBF; }
+.metro-C .metro-circle { background: #00BB85; }
+.metro-C .metro-name   { color: #00BB85; }
+.metro-Y .metro-circle { background: #C1A900; }
+.metro-Y .metro-name   { color: #C1A900; }
+.metro-Z .metro-circle { background: #8F76D6; }
+.metro-Z .metro-name   { color: #8F76D6; }
+.metro-N .metro-circle { background: #00AC9B; }
+.metro-N .metro-name   { color: #00AC9B; }
+.metro-F .metro-circle { background: #9B6E23; }
+.metro-F .metro-name   { color: #9B6E23; }
+/* Toei */
+.metro-E .metro-circle { background: #B6007A; }
+.metro-E .metro-name   { color: #B6007A; }
+.metro-A .metro-circle { background: #E85298; }
+.metro-A .metro-name   { color: #E85298; }
+.metro-I .metro-circle { background: #0079C2; }
+.metro-I .metro-name   { color: #0079C2; }
+.metro-S .metro-circle { background: #6CBB5A; }
+.metro-S .metro-name   { color: #6CBB5A; }
+/* JR */
+.metro-JR .metro-circle { background: #FF6600; border-radius: 3px; width: 22px; font-size: 0.55rem; }
+.metro-JR .metro-name   { color: #FF6600; }
+/* Keikyu / Shonan Monorail etc */
+.metro-KK .metro-circle { background: #E60012; border-radius: 3px; width: 22px; font-size: 0.55rem; }
+.metro-KK .metro-name   { color: #E60012; }
+
 /* ── MISC ── */
 .divider {
   width: 48px;
@@ -769,13 +834,13 @@ footer span { color: var(--gold); }
       <a class="day-card" href="#day1">
         <div class="day-num">01</div>
         <div class="day-week">週二 · 落地日</div>
-        <div class="day-title">成田 → 銀座 → 台場 → 入谷</div>
+        <div class="day-title">成田 → 銀座 → 上野 → 高円寺</div>
         <ul class="day-spots">
+          <li>Skyliner 上野</li>
           <li>燒肉INOUE銀座午餐</li>
           <li>銀座三越 Galette</li>
-          <li>哆啦A夢未來百貨</li>
-          <li>高円寺商店街</li>
-          <li>鴨とネギ晚餐</li>
+          <li>茅乃舍・Graniph・上野公園</li>
+          <li>高円寺・鴨とネギ晚餐</li>
         </ul>
       </a>
       <a class="day-card" href="#day2">
@@ -806,13 +871,13 @@ footer span { color: var(--gold); }
       <a class="day-card" href="#day4">
         <div class="day-num">04</div>
         <div class="day-week">週五 · 滿載日</div>
-        <div class="day-title">淺草 → 蔵前 → 晴空塔 → 澀谷</div>
+        <div class="day-title">淺草 → 晴空塔 → 芝公園 → 麻布台 → 澀谷</div>
         <ul class="day-spots">
-          <li>雷門・淺草寺</li>
-          <li>八十八浅草抹茶</li>
-          <li>すぎ田炸豬排</li>
-          <li>敘敘苑晴空塔</li>
+          <li>雷門・八十八浅草抹茶</li>
+          <li>敘敘苑晴空塔午餐</li>
+          <li>Fruits de Saison 芭菲</li>
           <li>東京鐵塔夜景</li>
+          <li>だし尾粂・澀谷</li>
         </ul>
       </a>
       <a class="day-card" href="#day5">
@@ -881,8 +946,8 @@ footer span { color: var(--gold); }
       </div>
       <div class="day-header-info">
         <div class="day-header-week">週二 · 落地日</div>
-        <h3 class="day-header-title">成田 → 銀座 → 台場 → 入谷 → 高円寺</h3>
-        <div class="day-header-sub">落地後先寄行李，銀座吃頓好肉，台場見哆啦A夢，夜晚逛高円寺古著街。</div>
+        <h3 class="day-header-title">成田 → 銀座 → 上野 → 高円寺</h3>
+        <div class="day-header-sub">清晨降落成田，Skyliner 進城，銀座吃頓好肉，順道上野逛逛，夜晚高円寺。</div>
       </div>
     </div>
 
@@ -890,92 +955,92 @@ footer span { color: var(--gold); }
       <div class="schedule-item">
         <div class="schedule-time">07:00</div>
         <div class="schedule-body">
-          <div class="schedule-place">✈️ 成田國際機場落地</div>
+          <div class="schedule-place">✈️ 抵達成田機場（航班 GK12）</div>
           <div class="schedule-transport">過海關、領行李約 1 小時</div>
         </div>
       </div>
       <div class="schedule-item">
         <div class="schedule-time">08:30</div>
         <div class="schedule-body">
-          <div class="schedule-place">🧳 上野站寄放行李</div>
-          <div class="schedule-transport paid">💴 京成特急 → 上野，約 60 分（自費）</div>
+          <div class="schedule-place">🚆 搭 Skyliner 到上野</div>
+          <div class="schedule-transport paid">💴 京成 Skyliner → 上野，約 41 分（自費）</div>
         </div>
       </div>
       <div class="schedule-item">
         <div class="schedule-time">09:30</div>
         <div class="schedule-body">
-          <div class="schedule-place">前往銀座</div>
-          <div class="schedule-transport paid">💴 JR 山手線 → 有楽町，步行 5 分（自費）</div>
+          <div class="schedule-place">🧳 Bounce Luggage Ueno 寄放行李</div>
+          <div class="schedule-transport">上野站周邊行李寄放服務</div>
         </div>
       </div>
       <div class="schedule-item">
         <div class="schedule-time">11:00</div>
         <div class="schedule-body">
-          <div class="schedule-place">🥩 燒肉INOUE 銀座店午餐</div>
-          <div class="schedule-transport warn"><span class="warn-badge">⚠ 訂位</span>平日午餐 11:00–15:00，強烈建議提前網路訂位</div>
+          <div class="schedule-place">🥩 燒肉INOUE 銀座本店 午餐</div>
+          <div class="schedule-transport warn"><span class="warn-badge">⚠ 訂位</span>tabelog 可預約，平日午餐 11:00–15:00</div>
         </div>
       </div>
       <div class="schedule-item">
         <div class="schedule-time">12:30</div>
         <div class="schedule-body">
           <div class="schedule-place">🍪 銀座三越 買 Galette au Beurre</div>
-          <div class="schedule-transport">步行即達</div>
+          <div class="schedule-transport">奶油厚燒 6 入（獨立包裝）布列塔尼酥餅，步行 10 分</div>
         </div>
       </div>
       <div class="schedule-item">
-        <div class="schedule-time">13:15</div>
+        <div class="schedule-time">13:00</div>
         <div class="schedule-body">
-          <div class="schedule-place">前往台場</div>
-          <div class="schedule-transport paid">💴 地鐵 → 新橋，百合海鷗號 → 台場（自費）</div>
+          <div class="schedule-place">🍜 銀座 茅乃舍</div>
+          <div class="schedule-transport">高湯專賣店，順路買伴手禮</div>
         </div>
       </div>
       <div class="schedule-item">
         <div class="schedule-time">14:00</div>
         <div class="schedule-body">
           <div class="schedule-place">🟡 哆啦A夢未來百貨公司</div>
-          <div class="schedule-transport">DiverCity Tokyo Plaza 2F，平日 11:00 開門</div>
+          <div class="schedule-transport paid">💴 台場 DiverCity Tokyo Plaza 2F，平日 11:00 開（自費）</div>
         </div>
       </div>
       <div class="schedule-item">
-        <div class="schedule-time">15:30</div>
+        <div class="schedule-time">16:00</div>
         <div class="schedule-body">
-          <div class="schedule-place">回上野取行李</div>
-          <div class="schedule-transport paid">💴 百合海鷗號 → 新橋，JR → 上野（自費）</div>
+          <div class="schedule-place">🌿 上野公園散步</div>
+          <div class="schedule-transport">不忍池、東照宮隨意逛</div>
         </div>
       </div>
       <div class="schedule-item">
-        <div class="schedule-time">16:15</div>
+        <div class="schedule-time">16:30</div>
         <div class="schedule-body">
-          <div class="schedule-place">🏠 Uber 到入谷住處 Check In</div>
-          <div class="schedule-transport paid">💴 Uber（自費）</div>
+          <div class="schedule-place">👕 Graniph atre Ueno</div>
+          <div class="schedule-transport">上野站內，順路進去逛</div>
         </div>
       </div>
       <div class="schedule-item">
         <div class="schedule-time">17:00</div>
         <div class="schedule-body">
-          <div class="schedule-place">前往高円寺</div>
-          <div class="schedule-transport paid">💴 JR 鶯谷 → 秋葉原 → 中央線 → 高円寺（自費）</div>
-        </div>
-      </div>
-      <div class="schedule-item">
-        <div class="schedule-time">17:15</div>
-        <div class="schedule-body">
-          <div class="schedule-place">⛩ 高円寺冰川神社</div>
-          <div class="schedule-transport warn"><span class="warn-badge">17:00關</span>步行 8 分，Day 1 到達時可能剛好趕上，Day 3 還有機會</div>
+          <div class="schedule-place">🏠 取行李 → Uber 到入谷住處 Check In</div>
+          <div class="schedule-transport paid">💴 Uber（自費）</div>
         </div>
       </div>
       <div class="schedule-item">
         <div class="schedule-time">17:30</div>
         <div class="schedule-body">
+          <div class="schedule-place">⛩ 高円寺冰川神社</div>
+          <div class="schedule-transport paid warn">💴 JR 鶯谷→秋葉原→中央線→高円寺（自費）<span class="warn-badge" style="margin-left:8px">17:00關</span></div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">17:45</div>
+        <div class="schedule-body">
           <div class="schedule-place">🛍 高円寺PAL商店街</div>
-          <div class="schedule-transport">古著、雜貨、個性小店，步行即達</div>
+          <div class="schedule-transport">古著、雜貨，步行即達</div>
         </div>
       </div>
       <div class="schedule-item">
         <div class="schedule-time">19:30</div>
         <div class="schedule-body">
           <div class="schedule-place">🦆 晚餐：鴨とネギ 上野御徒町</div>
-          <div class="schedule-transport">JR 回鶯谷方向，步行約 15 分（自費）。24 小時營業，無須訂位</div>
+          <div class="schedule-transport paid">💴 JR 回鶯谷方向，步行約 15 分。24 小時，無須訂位</div>
         </div>
       </div>
     </div>
@@ -1025,6 +1090,17 @@ footer span { color: var(--gold); }
     </div>
 
     <div class="schedule reveal">
+      <div class="schedule-item">
+        <div class="schedule-time">09:00</div>
+        <div class="schedule-body">
+          <div class="schedule-place">入谷出發</div>
+          <div class="schedule-transport paid">💴 JR 鶯谷→上野東京線→橫濱→橫須賀線→鎌倉，約 90 分</div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">10:30</div>
+        <div class="schedule-body">
+          <div class="schedule-place">⛩ 鶴岡八幡宮</div>
           <div class="schedule-transport">鎌倉站步行 10 分，鎌倉最重要的神社</div>
         </div>
       </div>
@@ -1086,8 +1162,8 @@ footer span { color: var(--gold); }
       </div>
       <div class="day-header-info">
         <div class="day-header-week">週四 · 海島日</div>
-        <h3 class="day-header-title">江之島 → 高円寺 → 上野 → 入谷</h3>
-        <div class="day-header-sub">搭湘南單軌電車穿越山丘衝向大海，探索江之島，下午回城逛高円寺。</div>
+        <h3 class="day-header-title">江之島 → 高円寺 → 入谷</h3>
+        <div class="day-header-sub">去程搭江之電看海景，回程搭湘南單軌穿山丘，下午高円寺喝咖啡逛街。</div>
       </div>
     </div>
 
@@ -1226,8 +1302,8 @@ footer span { color: var(--gold); }
       </div>
       <div class="day-header-info">
         <div class="day-header-week">週五 · 滿載日</div>
-        <h3 class="day-header-title">淺草 → 蔵前 → 晴空塔 → 秋葉原 → 芝公園 → 澀谷</h3>
-        <div class="day-header-sub">五天中行程最豐富的一天，從下町老街吃到夜澀谷。全程幾乎可用 72小時票。</div>
+        <h3 class="day-header-title">淺草 → 晴空塔 → 芝公園 → 麻布台 → 澀谷</h3>
+        <div class="day-header-sub">從下町老街到高空燒肉，芭菲、東京鐵塔、高湯伴手禮，最後夜澀谷收尾。</div>
       </div>
     </div>
 
@@ -1288,7 +1364,7 @@ footer span { color: var(--gold); }
         </div>
       </div>
       <div class="schedule-item">
-        <div class="schedule-time">13:45</div>
+        <div class="schedule-time">14:00</div>
         <div class="schedule-body">
           <div class="schedule-place">🥩 敘敘苑 晴空塔 30F 午餐</div>
           <div class="schedule-transport use-ticket warn"><span class="ticket-badge">✅ 72HR</span>地鐵 → 押上，步行 10 分 <span class="warn-badge">強烈建議提前訂位</span></div>
@@ -1298,11 +1374,11 @@ footer span { color: var(--gold); }
         <div class="schedule-time">15:30</div>
         <div class="schedule-body">
           <div class="schedule-place">🍎 Fruits de Saison 水果甜點</div>
-          <div class="schedule-transport use-ticket warn"><span class="ticket-badge">✅ 72HR</span>日比谷線 → 秋葉原 <span class="warn-badge">17:00 關</span></div>
+          <div class="schedule-transport use-ticket warn"><span class="ticket-badge">✅ 72HR</span>銀座線 → 末廣町，步行 3 分 <span class="warn-badge">17:00 關</span></div>
         </div>
       </div>
       <div class="schedule-item">
-        <div class="schedule-time">17:15</div>
+        <div class="schedule-time">17:00</div>
         <div class="schedule-body">
           <div class="schedule-place">🗼 芝公園 · 東京鐵塔夜景</div>
           <div class="schedule-transport use-ticket"><span class="ticket-badge">✅ 72HR</span>日比谷線 → 神谷町，步行 7 分</div>
@@ -1310,6 +1386,13 @@ footer span { color: var(--gold); }
       </div>
       <div class="schedule-item">
         <div class="schedule-time">19:00</div>
+        <div class="schedule-body">
+          <div class="schedule-place">🍱 だし尾粂 麻布台ヒルズ店</div>
+          <div class="schedule-transport use-ticket warn"><span class="ticket-badge">✅ 72HR</span>日比谷線 → 神谷町步行 5 分 <span class="warn-badge">至 20:00</span></div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">20:00</div>
         <div class="schedule-body">
           <div class="schedule-place">🌃 澀谷 十字路口 · Shibuya 109 · 晚餐</div>
           <div class="schedule-transport use-ticket"><span class="ticket-badge">✅ 72HR</span>日比谷線 → 澀谷</div>
@@ -1353,11 +1436,15 @@ footer span { color: var(--gold); }
     </div>
 
     <div class="schedule reveal">
+      <div class="schedule-item">
+        <div class="schedule-time">08:30</div>
+        <div class="schedule-body">
+          <div class="schedule-place">🧳 上野站寄放行李</div>
           <div class="schedule-transport paid">💴 Uber 住處 → 上野（自費），上野站有大型置物櫃</div>
         </div>
       </div>
       <div class="schedule-item">
-        <div class="schedule-time">08:30</div>
+        <div class="schedule-time">09:00</div>
         <div class="schedule-body">
           <div class="schedule-place">🦪 築地市場 早市</div>
           <div class="schedule-transport use-ticket"><span class="ticket-badge">✅ 72HR</span>日比谷線 → 築地。趁人潮前進場，吃早點＋買伴手禮</div>
@@ -1449,9 +1536,15 @@ footer span { color: var(--gold); }
       </div>
       <div class="resto-card">
         <div class="resto-day">特別推薦</div>
-        <div class="resto-name">🍵 八十八浅草</div>
+        <div class="resto-name">🍵 八十八良葉舍 淺草</div>
         <div class="resto-meta">淺草 · 京都八十八良葉舎東京分店</div>
-        <div class="resto-note">抹茶拿鐵 + 浅草プリン，平日 11:00–17:00</div>
+        <div class="resto-note">手刷抹茶拿鐵 + 浅草プリン，平日 11:00–17:00</div>
+      </div>
+      <div class="resto-card">
+        <div class="resto-day">Day 4 · 週五 · 傍晚</div>
+        <div class="resto-name">🍱 だし尾粂 麻布台ヒルズ店</div>
+        <div class="resto-meta">麻布台 · 高湯專賣 · 芝公園旁</div>
+        <div class="resto-note">買高湯包伴手禮，至 20:00</div>
       </div>
     </div>
   </div>
@@ -1554,6 +1647,61 @@ const sectionObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.3 });
 
 sections.forEach(s => sectionObserver.observe(s));
+
+// Metro badge helper
+function mb(code, name) {
+  return `<span class="metro metro-${code}"><span class="metro-circle">${code === 'JR' || code === 'KK' ? code : code}</span><span class="metro-name">${name}</span></span>`;
+}
+
+// Line definitions
+const LINES = {
+  G:  ['G', '銀座線'],
+  M:  ['M', '丸之內線'],
+  H:  ['H', '日比谷線'],
+  T:  ['T', '東西線'],
+  C:  ['C', '千代田線'],
+  Y:  ['Y', '有樂町線'],
+  Z:  ['Z', '半蔵門線'],
+  N:  ['N', '南北線'],
+  F:  ['F', '副都心線'],
+  E:  ['E', '都營大江戶線'],
+  A:  ['A', '都營淺草線'],
+  I:  ['I', '都營三田線'],
+  S:  ['S', '都營新宿線'],
+  JR: ['JR', 'JR'],
+  KK: ['KK', '京成'],
+};
+
+// Build transport spans with metro badges
+function buildTransport(el) {
+  const text = el.innerHTML;
+  // Replace line name patterns with badges
+  let out = text
+    // JR
+    .replace(/JR\s*(山手線|上野東京線|中央線|東海道線|横須賀線|湘南新宿ライン)/g, (m, line) =>
+      mb('JR', 'JR') + `<span style="font-size:.8rem"> ${line}</span>`)
+    // Tokyo Metro
+    .replace(/銀座線/g,    mb('G', '銀座線'))
+    .replace(/丸之內線|丸ノ内線/g, mb('M', '丸之內線'))
+    .replace(/日比谷線/g,  mb('H', '日比谷線'))
+    .replace(/東西線/g,    mb('T', '東西線'))
+    .replace(/千代田線/g,  mb('C', '千代田線'))
+    .replace(/有樂町線|有楽町線/g, mb('Y', '有樂町線'))
+    .replace(/半蔵門線/g,  mb('Z', '半蔵門線'))
+    .replace(/南北線/g,    mb('N', '南北線'))
+    .replace(/副都心線/g,  mb('F', '副都心線'))
+    // Toei
+    .replace(/大江戶線|大江户線/g, mb('E', '大江戶線'))
+    .replace(/都營淺草線/g, mb('A', '淺草線'))
+    .replace(/都營三田線/g, mb('I', '三田線'))
+    .replace(/都營新宿線/g, mb('S', '新宿線'))
+    // Keikyu/Keisei
+    .replace(/京成特急|京成/g, mb('KK', '京成'));
+
+  el.innerHTML = out;
+}
+
+document.querySelectorAll('.schedule-transport').forEach(buildTransport);
 </script>
 </body>
 </html>
