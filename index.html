@@ -1,0 +1,1559 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>東京五日旅遊手冊</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&family=Shippori+Mincho:wght@400;700&family=DM+Serif+Display:ital@0;1&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1a1510;
+  --paper: #f5f0e8;
+  --accent: #c94f2a;
+  --gold: #b8902a;
+  --blue: #2a4a7f;
+  --sage: #4a6741;
+  --muted: #7a6e62;
+  --warm: #e8dcc8;
+  --border: #c8baa8;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Noto Serif TC', 'Shippori Mincho', serif;
+  overflow-x: hidden;
+}
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  position: relative;
+  overflow: hidden;
+  background: var(--ink);
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(201,79,42,0.15) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(184,144,42,0.1) 0%, transparent 50%),
+    radial-gradient(ellipse at 60% 80%, rgba(42,74,127,0.12) 0%, transparent 50%),
+    #1a1510;
+}
+
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(245,240,232,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(245,240,232,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 80px 40px 40px;
+  gap: 0;
+}
+
+.hero-eyebrow {
+  font-family: 'Crimson Pro', serif;
+  font-style: italic;
+  color: var(--gold);
+  font-size: 1.1rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.2s ease forwards;
+}
+
+.hero-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(3.5rem, 10vw, 8rem);
+  color: var(--paper);
+  line-height: 0.9;
+  margin: 20px 0 16px;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.4s ease forwards;
+}
+
+.hero-title span {
+  display: block;
+  font-style: italic;
+  color: var(--accent);
+}
+
+.hero-sub {
+  color: rgba(245,240,232,0.6);
+  font-size: 1rem;
+  letter-spacing: 0.2em;
+  margin-bottom: 48px;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.6s ease forwards;
+}
+
+.hero-tags {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.8s ease forwards;
+}
+
+.hero-tag {
+  border: 1px solid rgba(245,240,232,0.2);
+  color: rgba(245,240,232,0.7);
+  font-size: 0.8rem;
+  padding: 6px 16px;
+  letter-spacing: 0.15em;
+  font-family: 'Crimson Pro', serif;
+}
+
+.hero-nav {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  border-top: 1px solid rgba(245,240,232,0.1);
+  opacity: 0;
+  animation: fadeUp 0.8s 1s ease forwards;
+  overflow-x: auto;
+}
+
+.hero-nav a {
+  color: rgba(245,240,232,0.5);
+  text-decoration: none;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 18px 24px;
+  transition: all 0.2s;
+  white-space: nowrap;
+  font-family: 'Crimson Pro', serif;
+  border-right: 1px solid rgba(245,240,232,0.1);
+}
+
+.hero-nav a:hover { color: var(--paper); background: rgba(255,255,255,0.05); }
+
+/* ── OVERVIEW ── */
+.section { padding: 80px 0; }
+
+.container { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+
+.section-label {
+  font-family: 'Crimson Pro', serif;
+  font-style: italic;
+  color: var(--accent);
+  font-size: 0.9rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.section-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.1;
+  margin-bottom: 48px;
+}
+
+/* Day Cards Overview */
+.overview-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2px;
+  background: var(--border);
+  border: 2px solid var(--border);
+}
+
+@media (max-width: 768px) {
+  .overview-grid { grid-template-columns: 1fr; }
+}
+
+.day-card {
+  background: var(--paper);
+  padding: 32px 24px;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.day-card:hover { background: var(--ink); color: var(--paper); }
+.day-card:hover .day-num { color: var(--accent); }
+.day-card:hover .day-week { color: rgba(245,240,232,0.5); }
+.day-card:hover .day-spots li::before { color: var(--gold); }
+
+.day-num {
+  font-family: 'DM Serif Display', serif;
+  font-size: 3rem;
+  line-height: 1;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+
+.day-week {
+  font-family: 'Crimson Pro', serif;
+  font-style: italic;
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.day-card:hover .day-week { border-color: rgba(255,255,255,0.1); }
+
+.day-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.day-spots {
+  list-style: none;
+  font-size: 0.78rem;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+.day-card:hover .day-spots { color: rgba(245,240,232,0.6); }
+
+.day-spots li::before {
+  content: '→ ';
+  color: var(--accent);
+  font-size: 0.7rem;
+}
+
+/* ── ALERTS ── */
+.alerts {
+  background: var(--ink);
+  padding: 60px 0;
+}
+
+.alerts .section-title { color: var(--paper); }
+.alerts .section-label { }
+
+.alert-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 768px) { .alert-grid { grid-template-columns: 1fr; } }
+
+.alert {
+  padding: 24px;
+  border-left: 3px solid;
+  font-size: 0.88rem;
+  line-height: 1.7;
+}
+
+.alert-warn { border-color: var(--accent); background: rgba(201,79,42,0.08); color: rgba(245,240,232,0.85); }
+.alert-info { border-color: var(--blue); background: rgba(42,74,127,0.08); color: rgba(245,240,232,0.85); }
+.alert-tip { border-color: var(--gold); background: rgba(184,144,42,0.08); color: rgba(245,240,232,0.85); }
+
+.alert-icon { font-size: 1.1rem; margin-bottom: 8px; display: block; }
+.alert strong { color: var(--paper); }
+
+/* ── DAY SECTIONS ── */
+.day-section {
+  border-top: 2px solid var(--border);
+  padding: 80px 0;
+}
+
+.day-section:nth-child(even) { background: rgba(200,186,168,0.15); }
+
+.day-header {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 32px;
+  align-items: start;
+  margin-bottom: 48px;
+}
+
+.day-badge {
+  width: 100px;
+  height: 100px;
+  background: var(--ink);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.day-badge-num {
+  font-family: 'DM Serif Display', serif;
+  font-size: 2.2rem;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.day-badge-label {
+  font-family: 'Crimson Pro', serif;
+  font-style: italic;
+  color: rgba(245,240,232,0.5);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+}
+
+.day-header-info {}
+.day-header-week {
+  font-family: 'Crimson Pro', serif;
+  font-style: italic;
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+}
+
+.day-header-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+.day-header-sub {
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.6;
+  font-family: 'Crimson Pro', serif;
+  font-style: italic;
+}
+
+/* Schedule */
+.schedule { margin-bottom: 32px; }
+
+.schedule-item {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 0;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.2s;
+}
+
+.schedule-item:first-child { border-top: 1px solid var(--border); }
+.schedule-item:hover { background: rgba(200,186,168,0.2); }
+
+.schedule-time {
+  padding: 18px 16px 18px 0;
+  font-family: 'Crimson Pro', serif;
+  font-size: 0.82rem;
+  color: var(--muted);
+  border-right: 1px solid var(--border);
+  display: flex;
+  align-items: flex-start;
+  padding-top: 20px;
+  letter-spacing: 0.05em;
+}
+
+.schedule-body {
+  padding: 16px 0 16px 20px;
+}
+
+.schedule-place {
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-bottom: 4px;
+  line-height: 1.4;
+}
+
+.schedule-transport {
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-family: 'Crimson Pro', serif;
+  line-height: 1.5;
+}
+
+.schedule-transport.use-ticket { color: var(--sage); }
+.schedule-transport.paid { color: #8a5a2a; }
+.schedule-transport.warn { color: var(--accent); }
+
+.ticket-badge {
+  display: inline-block;
+  background: var(--sage);
+  color: white;
+  font-size: 0.65rem;
+  padding: 2px 6px;
+  letter-spacing: 0.05em;
+  margin-right: 4px;
+  vertical-align: middle;
+  font-family: 'Crimson Pro', serif;
+}
+
+.warn-badge {
+  display: inline-block;
+  background: var(--accent);
+  color: white;
+  font-size: 0.65rem;
+  padding: 2px 6px;
+  letter-spacing: 0.05em;
+  margin-right: 4px;
+  vertical-align: middle;
+  font-family: 'Crimson Pro', serif;
+}
+
+/* Note boxes */
+.note {
+  margin: 16px 0;
+  padding: 16px 20px;
+  font-size: 0.85rem;
+  line-height: 1.7;
+  border-left: 3px solid;
+}
+
+.note-warn { border-color: var(--accent); background: rgba(201,79,42,0.06); }
+.note-info { border-color: var(--blue); background: rgba(42,74,127,0.06); }
+.note-tip { border-color: var(--gold); background: rgba(184,144,42,0.06); }
+
+/* ── RESTAURANTS ── */
+.restaurants-section {
+  background: var(--ink);
+  padding: 80px 0;
+}
+
+.restaurants-section .section-title { color: var(--paper); }
+
+.resto-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2px;
+  background: rgba(245,240,232,0.1);
+}
+
+.resto-card {
+  background: #1a1510;
+  padding: 28px;
+  border-bottom: 1px solid rgba(245,240,232,0.08);
+}
+
+.resto-day {
+  font-family: 'Crimson Pro', serif;
+  font-style: italic;
+  color: var(--accent);
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  margin-bottom: 8px;
+}
+
+.resto-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--paper);
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+
+.resto-meta {
+  font-size: 0.78rem;
+  color: rgba(245,240,232,0.4);
+  font-family: 'Crimson Pro', serif;
+  margin-bottom: 10px;
+}
+
+.resto-note {
+  font-size: 0.8rem;
+  color: rgba(245,240,232,0.6);
+  line-height: 1.5;
+  padding-top: 10px;
+  border-top: 1px solid rgba(245,240,232,0.08);
+}
+
+.resto-note.urgent { color: #e8896a; }
+
+/* ── TICKET SECTION ── */
+.ticket-section { padding: 80px 0; }
+
+.ticket-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  background: var(--border);
+  border: 2px solid var(--border);
+}
+
+@media (max-width: 600px) { .ticket-grid { grid-template-columns: 1fr; } }
+
+.ticket-col { background: var(--paper); padding: 32px; }
+
+.ticket-col-header {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.ticket-col.can .ticket-col-header { color: var(--sage); }
+.ticket-col.paid .ticket-col-header { color: #8a5a2a; }
+
+.ticket-list { list-style: none; }
+.ticket-list li {
+  font-size: 0.85rem;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(200,186,168,0.4);
+  line-height: 1.5;
+}
+
+.ticket-list li:last-child { border-bottom: none; }
+
+.ticket-list li::before {
+  content: '• ';
+  font-size: 0.7rem;
+}
+
+.ticket-col.can .ticket-list li::before { color: var(--sage); }
+.ticket-col.paid .ticket-list li::before { color: #8a5a2a; }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--ink);
+  color: rgba(245,240,232,0.4);
+  text-align: center;
+  padding: 40px;
+  font-family: 'Crimson Pro', serif;
+  font-style: italic;
+  font-size: 0.9rem;
+  border-top: 1px solid rgba(245,240,232,0.08);
+}
+
+footer span { color: var(--gold); }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── STICKY NAV ── */
+.sticky-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(26,21,16,0.95);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid rgba(245,240,232,0.08);
+  overflow-x: auto;
+}
+
+.sticky-nav a {
+  color: rgba(245,240,232,0.5);
+  text-decoration: none;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 14px 20px;
+  transition: all 0.2s;
+  white-space: nowrap;
+  font-family: 'Crimson Pro', serif;
+}
+
+.sticky-nav a:hover,
+.sticky-nav a.active { color: var(--paper); }
+
+.sticky-nav a.active::after {
+  content: '';
+  display: block;
+  height: 2px;
+  background: var(--accent);
+  margin-top: 2px;
+}
+
+/* ── PHOTOS ── */
+.spot-photo {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  filter: sepia(15%) contrast(1.05);
+  transition: filter 0.4s, transform 0.4s;
+}
+
+.spot-photo:hover { filter: sepia(0%) contrast(1.1); transform: scale(1.02); }
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  margin-bottom: 32px;
+  overflow: hidden;
+}
+
+@media (max-width: 600px) { .photo-grid { grid-template-columns: 1fr 1fr; } }
+
+.photo-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.photo-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(26,21,16,0.85));
+  color: rgba(245,240,232,0.9);
+  font-size: 0.72rem;
+  padding: 20px 10px 8px;
+  font-family: 'Crimson Pro', serif;
+  font-style: italic;
+}
+
+.photo-credit {
+  font-size: 0.6rem;
+  color: rgba(245,240,232,0.5);
+  display: block;
+}
+
+.hero-photo {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+  margin-bottom: 32px;
+  filter: sepia(20%) contrast(1.05);
+}
+
+@media (max-width: 768px) { .hero-photo { height: 200px; } }
+
+/* ── MISC ── */
+.divider {
+  width: 48px;
+  height: 2px;
+  background: var(--accent);
+  margin: 16px 0 32px;
+}
+
+.pill {
+  display: inline-block;
+  border: 1px solid var(--border);
+  font-family: 'Crimson Pro', serif;
+  font-size: 0.75rem;
+  padding: 3px 10px;
+  color: var(--muted);
+  margin: 2px;
+}
+
+.tip-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+@media (max-width: 600px) { .tip-grid { grid-template-columns: 1fr; } }
+
+.tip-box {
+  padding: 24px;
+  border: 1px solid var(--border);
+}
+
+.tip-box h4 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1rem;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.tip-box ul { list-style: none; }
+
+.tip-box ul li {
+  font-size: 0.83rem;
+  padding: 5px 0;
+  line-height: 1.5;
+  color: var(--muted);
+  border-bottom: 1px solid rgba(200,186,168,0.3);
+}
+
+.tip-box ul li:last-child { border-bottom: none; }
+
+.tip-box ul li::before { content: '— '; color: var(--accent); }
+
+@media (max-width: 768px) {
+  .container { padding: 0 20px; }
+  .day-header { grid-template-columns: 1fr; }
+  .day-badge { width: 80px; height: 80px; }
+  .hero-content { padding: 60px 20px 30px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">旅遊手冊 · Travel Guide</div>
+    <h1 class="hero-title">
+      東京
+      <span>五日</span>
+    </h1>
+    <div class="hero-sub">鎌倉 · 江之島 · 入谷 · 台場</div>
+    <div class="hero-tags">
+      <div class="hero-tag">週二出發</div>
+      <div class="hero-tag">週六深夜回程</div>
+      <div class="hero-tag">72小時地鐵票</div>
+      <div class="hero-tag">住入谷・藤澤</div>
+    </div>
+  </div>
+  <nav class="hero-nav">
+    <a href="#overview">概覽</a>
+    <a href="#day1">Day 1</a>
+    <a href="#day2">Day 2</a>
+    <a href="#day3">Day 3</a>
+    <a href="#day4">Day 4</a>
+    <a href="#day5">Day 5</a>
+    <a href="#food">餐廳</a>
+    <a href="#ticket">車票</a>
+  </nav>
+</section>
+
+<!-- STICKY NAV -->
+<div class="sticky-nav">
+  <a href="#overview">概覽</a>
+  <a href="#day1">Day 1</a>
+  <a href="#day2">Day 2</a>
+  <a href="#day3">Day 3</a>
+  <a href="#day4">Day 4</a>
+  <a href="#day5">Day 5</a>
+  <a href="#food">餐廳</a>
+  <a href="#ticket">車票</a>
+</div>
+
+<!-- OVERVIEW -->
+<section class="section" id="overview">
+  <div class="container">
+    <div class="section-label reveal">五天行程一覽</div>
+    <h2 class="section-title reveal">行程概覽</h2>
+    <!-- 東京夜景 - Wikimedia Commons CC BY-SA -->
+    <img class="hero-photo reveal" 
+      src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Skyscrapers_of_Shinjuku_2009_January.jpg/1280px-Skyscrapers_of_Shinjuku_2009_January.jpg"
+      alt="東京夜景" loading="lazy"
+      onerror="this.style.display='none'">
+    <div class="overview-grid reveal">
+      <a class="day-card" href="#day1">
+        <div class="day-num">01</div>
+        <div class="day-week">週二 · 落地日</div>
+        <div class="day-title">成田 → 銀座 → 台場 → 入谷</div>
+        <ul class="day-spots">
+          <li>燒肉INOUE銀座午餐</li>
+          <li>銀座三越 Galette</li>
+          <li>哆啦A夢未來百貨</li>
+          <li>高円寺商店街</li>
+          <li>鴨とネギ晚餐</li>
+        </ul>
+      </a>
+      <a class="day-card" href="#day2">
+        <div class="day-num">02</div>
+        <div class="day-week">週三 · 古都日</div>
+        <div class="day-title">入谷 → 鎌倉 → 藤澤</div>
+        <ul class="day-spots">
+          <li>鶴岡八幡宮</li>
+          <li>小町通り釜飯</li>
+          <li>高德院大佛</li>
+          <li>鎌倉高校前</li>
+          <li>七里濱咖啡</li>
+        </ul>
+      </a>
+      <a class="day-card" href="#day3">
+        <div class="day-num">03</div>
+        <div class="day-week">週四 · 海島日</div>
+        <div class="day-title">江之島 → 高円寺 → 上野</div>
+        <ul class="day-spots">
+          <li>湘南單軌電車</li>
+          <li>江島神社</li>
+          <li>岩屋洞窟</li>
+          <li>高円寺冰川神社</li>
+          <li>POEM 咖啡水果三明治</li>
+          <li>Graniph 上野</li>
+        </ul>
+      </a>
+      <a class="day-card" href="#day4">
+        <div class="day-num">04</div>
+        <div class="day-week">週五 · 滿載日</div>
+        <div class="day-title">淺草 → 蔵前 → 晴空塔 → 澀谷</div>
+        <ul class="day-spots">
+          <li>雷門・淺草寺</li>
+          <li>八十八浅草抹茶</li>
+          <li>すぎ田炸豬排</li>
+          <li>敘敘苑晴空塔</li>
+          <li>東京鐵塔夜景</li>
+        </ul>
+      </a>
+      <a class="day-card" href="#day5">
+        <div class="day-num">05</div>
+        <div class="day-week">週六 · 出發日</div>
+        <div class="day-title">築地 → 原宿 → 成田</div>
+        <ul class="day-spots">
+          <li>築地早市</li>
+          <li>燒肉INOUE銀座</li>
+          <li>銀座三越</li>
+          <li>原宿竹下通</li>
+          <li>22:40 起飛</li>
+        </ul>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ALERTS -->
+<section class="alerts" id="alerts">
+  <div class="container">
+    <div class="section-label" style="color:var(--gold)">出發前必看</div>
+    <h2 class="section-title reveal">重要提醒</h2>
+    <div class="alert-grid reveal">
+      <div class="alert alert-warn">
+        <span class="alert-icon">⚠️</span>
+        <strong>訂位！訂位！訂位！</strong><br>
+        燒肉INOUE銀座、敘敘苑晴空塔——兩間強烈建議提前網路訂位，不訂位可能無法入場。
+      </div>
+      <div class="alert alert-info">
+        <span class="alert-icon">🎫</span>
+        <strong>72小時票啟用時機</strong><br>
+        建議 Day 3 下午從新宿搭地鐵時開始使用，剛好涵蓋 Day 3 下午、Day 4 全天、Day 5 上午，效益最大。
+      </div>
+      <div class="alert alert-tip">
+        <span class="alert-icon">🐷</span>
+        <strong>すぎ田早點去</strong><br>
+        蔵前米其林必比登炸豬排名店，建議開門前抵達排隊，午餐時段很快客滿。
+      </div>
+      <div class="alert alert-warn">
+        <span class="alert-icon">🕔</span>
+        <strong>注意關門時間</strong><br>
+        八十八浅草（平日 11:00–17:00）、Hatoya's 水果三明治、Fruits de Saison（17:00）、高円寺冰川神社（17:00）都有截止時間。
+      </div>
+      <div class="alert alert-info">
+        <span class="alert-icon">🧳</span>
+        <strong>行李寄放策略</strong><br>
+        Day 1 從成田到上野站先寄放行李，輕鬆去台場，下午叫 Uber 直接到入谷住處 check in。Day 5 出發前同樣在上野寄放。
+      </div>
+      <div class="alert alert-tip">
+        <span class="alert-icon">🚟</span>
+        <strong>江之電一日票</strong><br>
+        のりおりくん 800円，搭超過 4 次即回本。你的行程站數絕對划算，可在 EMot app 事先購買電子版。
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DAY 1 -->
+<section class="day-section" id="day1">
+  <div class="container">
+    <div class="day-header reveal">
+      <div class="day-badge">
+        <div class="day-badge-num">01</div>
+        <div class="day-badge-label">週二</div>
+      </div>
+      <div class="day-header-info">
+        <div class="day-header-week">週二 · 落地日</div>
+        <h3 class="day-header-title">成田 → 銀座 → 台場 → 入谷 → 高円寺</h3>
+        <div class="day-header-sub">落地後先寄行李，銀座吃頓好肉，台場見哆啦A夢，夜晚逛高円寺古著街。</div>
+      </div>
+    </div>
+
+    <div class="schedule reveal">
+      <div class="schedule-item">
+        <div class="schedule-time">07:00</div>
+        <div class="schedule-body">
+          <div class="schedule-place">✈️ 成田國際機場落地</div>
+          <div class="schedule-transport">過海關、領行李約 1 小時</div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">08:30</div>
+        <div class="schedule-body">
+          <div class="schedule-place">🧳 上野站寄放行李</div>
+          <div class="schedule-transport paid">💴 京成特急 → 上野，約 60 分（自費）</div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">09:30</div>
+        <div class="schedule-body">
+          <div class="schedule-place">前往銀座</div>
+          <div class="schedule-transport paid">💴 JR 山手線 → 有楽町，步行 5 分（自費）</div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">11:00</div>
+        <div class="schedule-body">
+          <div class="schedule-place">🥩 燒肉INOUE 銀座店午餐</div>
+          <div class="schedule-transport warn"><span class="warn-badge">⚠ 訂位</span>平日午餐 11:00–15:00，強烈建議提前網路訂位</div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">12:30</div>
+        <div class="schedule-body">
+          <div class="schedule-place">🍪 銀座三越 買 Galette au Beurre</div>
+          <div class="schedule-transport">步行即達</div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">13:15</div>
+        <div class="schedule-body">
+          <div class="schedule-place">前往台場</div>
+          <div class="schedule-transport paid">💴 地鐵 → 新橋，百合海鷗號 → 台場（自費）</div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">14:00</div>
+        <div class="schedule-body">
+          <div class="schedule-place">🟡 哆啦A夢未來百貨公司</div>
+          <div class="schedule-transport">DiverCity Tokyo Plaza 2F，平日 11:00 開門</div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">15:30</div>
+        <div class="schedule-body">
+          <div class="schedule-place">回上野取行李</div>
+          <div class="schedule-transport paid">💴 百合海鷗號 → 新橋，JR → 上野（自費）</div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">16:15</div>
+        <div class="schedule-body">
+          <div class="schedule-place">🏠 Uber 到入谷住處 Check In</div>
+          <div class="schedule-transport paid">💴 Uber（自費）</div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">17:00</div>
+        <div class="schedule-body">
+          <div class="schedule-place">前往高円寺</div>
+          <div class="schedule-transport paid">💴 JR 鶯谷 → 秋葉原 → 中央線 → 高円寺（自費）</div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">17:15</div>
+        <div class="schedule-body">
+          <div class="schedule-place">⛩ 高円寺冰川神社</div>
+          <div class="schedule-transport warn"><span class="warn-badge">17:00關</span>步行 8 分，Day 1 到達時可能剛好趕上，Day 3 還有機會</div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">17:30</div>
+        <div class="schedule-body">
+          <div class="schedule-place">🛍 高円寺PAL商店街</div>
+          <div class="schedule-transport">古著、雜貨、個性小店，步行即達</div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">19:30</div>
+        <div class="schedule-body">
+          <div class="schedule-place">🦆 晚餐：鴨とネギ 上野御徒町</div>
+          <div class="schedule-transport">JR 回鶯谷方向，步行約 15 分（自費）。24 小時營業，無須訂位</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="note note-warn reveal">⚠️ 冰川神社 17:00 關閉，Day 1 從台場回來可能剛好來不及。建議不要特別趕，Day 3 高円寺時再拚；PAL 商店街照常逛。</div>
+  </div>
+</section>
+
+<!-- DAY 2 -->
+<section class="day-section" id="day2">
+  <div class="container">
+    <div class="day-header reveal">
+      <div class="day-badge">
+        <div class="day-badge-num">02</div>
+        <div class="day-badge-label">週三</div>
+      </div>
+      <div class="day-header-info">
+        <div class="day-header-week">週三 · 古都日</div>
+        <h3 class="day-header-title">入谷 → 鎌倉 → 藤澤</h3>
+        <div class="day-header-sub">江之電穿梭古都，大佛靜靜守候，傍晚在七里濱喝杯咖啡，夜宿藤澤。</div>
+      </div>
+    </div>
+
+    <!-- Day 2 景點照片 -->
+    <div class="photo-grid reveal">
+      <div class="photo-item">
+        <img class="spot-photo" 
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Tsurugaoka_Hachiman-gu_Apr08.jpg/800px-Tsurugaoka_Hachiman-gu_Apr08.jpg"
+          alt="鶴岡八幡宮" loading="lazy"
+          onerror="this.parentElement.style.display='none'">
+        <div class="photo-caption">鶴岡八幡宮</div>
+      </div>
+      <div class="photo-item">
+        <img class="spot-photo"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Kamakura_Budda_Daibutsu_front_1885.jpg/800px-Kamakura_Budda_Daibutsu_front_1885.jpg"
+          alt="鎌倉大佛" loading="lazy"
+          onerror="this.parentElement.style.display='none'">
+        <div class="photo-caption">高德院 鎌倉大佛</div>
+      </div>
+      <div class="photo-item">
+        <img class="spot-photo"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Enoshima_Island_Aerial_photograph_2015.jpg/800px-Enoshima_Island_Aerial_photograph_2015.jpg"
+          alt="江之島" loading="lazy"
+          onerror="this.parentElement.style.display='none'">
+        <div class="photo-caption">七里濱・湘南海岸</div>
+      </div>
+    </div>
+
+    <div class="schedule reveal">
+          <div class="schedule-transport">鎌倉站步行 10 分，鎌倉最重要的神社</div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">12:00</div>
+        <div class="schedule-body">
+          <div class="schedule-place">🍱 小町通り 釜飯午餐</div>
+          <div class="schedule-transport warn"><span class="warn-badge">熱門</span>步行即達，建議早點去避免排隊</div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">13:30</div>
+        <div class="schedule-body">
+          <div class="schedule-place">🗿 高德院（鎌倉大佛）</div>
+          <div class="schedule-transport paid">💴 江之電 → 長谷站，步行 10 分 <span class="warn-badge">16:30 最後入場</span></div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">15:15</div>
+        <div class="schedule-body">
+          <div class="schedule-place">📸 鎌倉高校前平交道</div>
+          <div class="schedule-transport paid">💴 江之電約 15 分。灌籃高手取景地，傍晚光線最美</div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">16:00</div>
+        <div class="schedule-body">
+          <div class="schedule-place">☕ 七里濱咖啡</div>
+          <div class="schedule-transport paid">💴 江之電 1 站，步行 5 分。面海看夕陽</div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">17:15</div>
+        <div class="schedule-body">
+          <div class="schedule-place">🏨 前往藤澤 Check In</div>
+          <div class="schedule-transport paid">💴 江之電 → 藤澤</div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">晚餐</div>
+        <div class="schedule-body">
+          <div class="schedule-place">藤澤站南口附近隨意</div>
+          <div class="schedule-transport">居酒屋、海鮮料理，步行即達</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="note note-info reveal">ℹ️ <strong>江之電一日票「のりおりくん」800円</strong>——搭超過 4 次即回本。今天行程鎌倉→長谷→鎌倉高校前→七里濱→藤澤，完全值得購買。可在 EMot app 事先購買電子版，或當天在藤澤站售票機購買。</div>
+  </div>
+</section>
+
+<!-- DAY 3 -->
+<section class="day-section" id="day3">
+  <div class="container">
+    <div class="day-header reveal">
+      <div class="day-badge">
+        <div class="day-badge-num">03</div>
+        <div class="day-badge-label">週四</div>
+      </div>
+      <div class="day-header-info">
+        <div class="day-header-week">週四 · 海島日</div>
+        <h3 class="day-header-title">江之島 → 高円寺 → 上野 → 入谷</h3>
+        <div class="day-header-sub">搭湘南單軌電車穿越山丘衝向大海，探索江之島，下午回城逛高円寺。</div>
+      </div>
+    </div>
+
+    <div class="note note-tip reveal">💡 <strong>建議從這天下午開始啟用 Tokyo Subway 72小時票</strong>——新宿搭地鐵到上野時開始用，剛好涵蓋 Day 3 下午、Day 4 全天、Day 5 上午，效益最大！</div>
+
+    <!-- Day 3 景點照片 -->
+    <div class="photo-grid reveal" style="margin-top:24px">
+      <div class="photo-item">
+        <img class="spot-photo"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Enoshima_Island_Aerial_photograph_2015.jpg/800px-Enoshima_Island_Aerial_photograph_2015.jpg"
+          alt="江之島" loading="lazy"
+          onerror="this.parentElement.style.display='none'">
+        <div class="photo-caption">江之島全景</div>
+      </div>
+      <div class="photo-item">
+        <img class="spot-photo"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Enoshima_Iwaya_caves.jpg/800px-Enoshima_Iwaya_caves.jpg"
+          alt="岩屋洞窟" loading="lazy"
+          onerror="this.parentElement.style.display='none'">
+        <div class="photo-caption">岩屋洞窟</div>
+      </div>
+      <div class="photo-item">
+        <img class="spot-photo"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Enoshima_Sea_Candle.jpg/800px-Enoshima_Sea_Candle.jpg"
+          alt="江の島シーキャンドル" loading="lazy"
+          onerror="this.parentElement.style.display='none'">
+        <div class="photo-caption">江の島シーキャンドル展望燈塔</div>
+      </div>
+    </div>
+
+    <div class="schedule reveal" style="margin-top:0">
+      <div class="schedule-item">
+        <div class="schedule-time">09:00</div>
+        <div class="schedule-body">
+          <div class="schedule-place">藤澤出發</div>
+          <div class="schedule-transport paid">💴 江之電 藤澤 → 江ノ島站（搭江之電去程體驗海景），約 10 分</div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">09:20</div>
+        <div class="schedule-body">
+          <div class="schedule-place">🏝 江之島抵達</div>
+          <div class="schedule-transport">江ノ島站步行約 20 分進島，或片瀬江ノ島站更近</div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">09:40</div>
+        <div class="schedule-body">
+          <div class="schedule-place">⛩ 江島神社</div>
+          <div class="schedule-transport">祈求良緣的知名神社，步行</div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">10:30</div>
+        <div class="schedule-body">
+          <div class="schedule-place">🌊 岩屋洞窟</div>
+          <div class="schedule-transport">天然海蝕洞窟，需買票入內</div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">11:30</div>
+        <div class="schedule-body">
+          <div class="schedule-place">🕯 展望燈塔（江の島シーキャンドル）</div>
+          <div class="schedule-transport">晴天可眺望富士山</div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">12:30</div>
+        <div class="schedule-body">
+          <div class="schedule-place">🦐 江之島午餐</div>
+          <div class="schedule-transport">海鮮丼、烤海鮮，島上有多間選擇</div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">14:30</div>
+        <div class="schedule-body">
+          <div class="schedule-place">🚟 搭湘南單軌電車回程</div>
+          <div class="schedule-transport paid">💴 湘南江之島站 → 大船（單軌，約 14 分，像雲霄飛車！），再 JR 湘南新宿ライン → 新宿（約 50 分）</div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">15:30</div>
+        <div class="schedule-body">
+          <div class="schedule-place">⛩ 高円寺冰川神社</div>
+          <div class="schedule-transport paid">💴 JR 中央線 → 高円寺，步行 8 分 <span class="warn-badge">17:00關</span></div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">16:00</div>
+        <div class="schedule-body">
+          <div class="schedule-place">🛍 高円寺PAL商店街</div>
+          <div class="schedule-transport">古著、雜貨，步行即達</div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">17:00</div>
+        <div class="schedule-body">
+          <div class="schedule-place">☕ POEM Mano A Mano Coffee</div>
+          <div class="schedule-transport warn">高円寺南，步行即達 <span class="warn-badge">營業到 19:00</span>咖啡＋水果三明治，老派喫茶風格，常需排隊</div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">18:00</div>
+        <div class="schedule-body">
+          <div class="schedule-place">🌿 上野公園散步</div>
+          <div class="schedule-transport use-ticket"><span class="ticket-badge">✅ 72HR</span>JR → 上野，不忍池、東照宮</div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">18:30</div>
+        <div class="schedule-body">
+          <div class="schedule-place">👕 Graniph atre Ueno</div>
+          <div class="schedule-transport">上野站內，順路進去逛</div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">19:00</div>
+        <div class="schedule-body">
+          <div class="schedule-place">🏠 Uber 回入谷住處</div>
+          <div class="schedule-transport paid">💴 Uber（自費）</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="note note-info reveal">ℹ️ <strong>湘南單軌電車</strong>是懸垂式單軌，從大船穿越丘陵地帶俯衝至江之島，最高時速 75km，急彎急坡刺激感滿分。去程搭江之電看海景，回程搭單軌穿山丘，兩種風景都體驗到！</div>
+  </div>
+</section>
+
+<!-- DAY 4 -->
+<section class="day-section" id="day4">
+  <div class="container">
+    <div class="day-header reveal">
+      <div class="day-badge">
+        <div class="day-badge-num">04</div>
+        <div class="day-badge-label">週五</div>
+      </div>
+      <div class="day-header-info">
+        <div class="day-header-week">週五 · 滿載日</div>
+        <h3 class="day-header-title">淺草 → 蔵前 → 晴空塔 → 秋葉原 → 芝公園 → 澀谷</h3>
+        <div class="day-header-sub">五天中行程最豐富的一天，從下町老街吃到夜澀谷。全程幾乎可用 72小時票。</div>
+      </div>
+    </div>
+
+    <div class="note note-warn reveal">⚠️ 今天行程較滿：すぎ田和敘敘苑都是午餐時段，建議 すぎ田 輕食即可，或兩間擇一。</div>
+
+    <!-- Day 4 景點照片 -->
+    <div class="photo-grid reveal" style="margin-top:24px">
+      <div class="photo-item">
+        <img class="spot-photo"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Senso-ji_Temple_Asakusa_2015.jpg/800px-Senso-ji_Temple_Asakusa_2015.jpg"
+          alt="淺草寺" loading="lazy"
+          onerror="this.parentElement.style.display='none'">
+        <div class="photo-caption">淺草寺・雷門</div>
+      </div>
+      <div class="photo-item">
+        <img class="spot-photo"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Tokyo_skytree_2012.JPG/800px-Tokyo_skytree_2012.JPG"
+          alt="東京晴空塔" loading="lazy"
+          onerror="this.parentElement.style.display='none'">
+        <div class="photo-caption">東京晴空塔</div>
+      </div>
+      <div class="photo-item">
+        <img class="spot-photo"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Tokyo_Tower_in_the_daytime_2024.jpg/800px-Tokyo_Tower_in_the_daytime_2024.jpg"
+          alt="東京鐵塔" loading="lazy"
+          onerror="this.parentElement.style.display='none'">
+        <div class="photo-caption">東京鐵塔・芝公園</div>
+      </div>
+    </div>
+
+    <div class="schedule reveal" style="margin-top:0">
+      <div class="schedule-item">
+        <div class="schedule-time">10:00</div>
+        <div class="schedule-body">
+          <div class="schedule-place">⛩ 雷門 → 仲見世通り → 淺草寺</div>
+          <div class="schedule-transport use-ticket"><span class="ticket-badge">✅ 72HR</span>地鐵銀座線 → 淺草</div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">11:00</div>
+        <div class="schedule-body">
+          <div class="schedule-place">🍵 八十八浅草 抹茶拿鐵 + 浅草プリン</div>
+          <div class="schedule-transport warn">淺草寺步行 5 分 <span class="warn-badge">平日 11:00 開</span> 限量，早去</div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">11:30</div>
+        <div class="schedule-body">
+          <div class="schedule-place">🍓 Hatoya's 水果三明治</div>
+          <div class="schedule-transport warn">步行 3 分，評分 4.8 <span class="warn-badge">11:00–16:00</span></div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">12:15</div>
+        <div class="schedule-body">
+          <div class="schedule-place">🥩 とんかつ すぎ田（蔵前）</div>
+          <div class="schedule-transport use-ticket warn"><span class="ticket-badge">✅ 72HR</span>大江戶線 → 蔵前，步行 3 分 <span class="warn-badge">米其林必比登，建議開門前排隊</span></div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">13:45</div>
+        <div class="schedule-body">
+          <div class="schedule-place">🥩 敘敘苑 晴空塔 30F 午餐</div>
+          <div class="schedule-transport use-ticket warn"><span class="ticket-badge">✅ 72HR</span>地鐵 → 押上，步行 10 分 <span class="warn-badge">強烈建議提前訂位</span></div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">15:30</div>
+        <div class="schedule-body">
+          <div class="schedule-place">🍎 Fruits de Saison 水果甜點</div>
+          <div class="schedule-transport use-ticket warn"><span class="ticket-badge">✅ 72HR</span>日比谷線 → 秋葉原 <span class="warn-badge">17:00 關</span></div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">17:15</div>
+        <div class="schedule-body">
+          <div class="schedule-place">🗼 芝公園 · 東京鐵塔夜景</div>
+          <div class="schedule-transport use-ticket"><span class="ticket-badge">✅ 72HR</span>日比谷線 → 神谷町，步行 7 分</div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">19:00</div>
+        <div class="schedule-body">
+          <div class="schedule-place">🌃 澀谷 十字路口 · Shibuya 109 · 晚餐</div>
+          <div class="schedule-transport use-ticket"><span class="ticket-badge">✅ 72HR</span>日比谷線 → 澀谷</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DAY 5 -->
+<section class="day-section" id="day5">
+  <div class="container">
+    <div class="day-header reveal">
+      <div class="day-badge">
+        <div class="day-badge-num">05</div>
+        <div class="day-badge-label">週六</div>
+      </div>
+      <div class="day-header-info">
+        <div class="day-header-week">週六 · 出發日</div>
+        <h3 class="day-header-title">上野寄行李 → 築地 → 原宿 → 成田</h3>
+        <div class="day-header-sub">趁早衝築地吃新鮮，原宿掃最後一波，22:40 踏上歸途。</div>
+      </div>
+    </div>
+
+    <!-- Day 5 景點照片 -->
+    <div class="photo-grid reveal" style="grid-template-columns:1fr 1fr;margin-bottom:24px">
+      <div class="photo-item">
+        <img class="spot-photo"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Tsukiji_fish_market_1.jpg/800px-Tsukiji_fish_market_1.jpg"
+          alt="築地市場" loading="lazy"
+          onerror="this.parentElement.style.display='none'">
+        <div class="photo-caption">築地市場</div>
+      </div>
+      <div class="photo-item">
+        <img class="spot-photo"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Harajuku_Takeshita_Street.jpg/800px-Harajuku_Takeshita_Street.jpg"
+          alt="原宿竹下通" loading="lazy"
+          onerror="this.parentElement.style.display='none'">
+        <div class="photo-caption">原宿竹下通</div>
+      </div>
+    </div>
+
+    <div class="schedule reveal">
+          <div class="schedule-transport paid">💴 Uber 住處 → 上野（自費），上野站有大型置物櫃</div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">08:30</div>
+        <div class="schedule-body">
+          <div class="schedule-place">🦪 築地市場 早市</div>
+          <div class="schedule-transport use-ticket"><span class="ticket-badge">✅ 72HR</span>日比谷線 → 築地。趁人潮前進場，吃早點＋買伴手禮</div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">10:30</div>
+        <div class="schedule-body">
+          <div class="schedule-place">前往原宿</div>
+          <div class="schedule-transport use-ticket"><span class="ticket-badge">✅ 72HR</span>千代田線 → 明治神宮前</div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">11:00</div>
+        <div class="schedule-body">
+          <div class="schedule-place">🛍 原宿竹下通</div>
+          <div class="schedule-transport">逛街、甜點、潮流小店</div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">13:00</div>
+        <div class="schedule-body">
+          <div class="schedule-place">回上野取行李</div>
+          <div class="schedule-transport use-ticket"><span class="ticket-badge">✅ 72HR</span>地鐵 → 上野</div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">13:30</div>
+        <div class="schedule-body">
+          <div class="schedule-place">前往成田機場</div>
+          <div class="schedule-transport paid">💴 京成特急 上野 → 成田，約 70 分（自費）</div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">15:00</div>
+        <div class="schedule-body">
+          <div class="schedule-place">✈️ 成田機場抵達</div>
+          <div class="schedule-transport">Check in、安檢、候機</div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">22:40</div>
+        <div class="schedule-body">
+          <div class="schedule-place">✈️ 出發！帶著回憶回家</div>
+          <div class="schedule-transport">旅程圓滿結束</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="note note-info reveal">ℹ️ 築地市場早市約 08:30–10:00 人潮最少，食材最新鮮。推薦吃一碗海鮮丼當早餐，再買伴手禮。だし尾粂有築地分店，可順便購買。</div>
+  </div>
+</section>
+
+<!-- RESTAURANTS -->
+<section class="restaurants-section" id="food">
+  <div class="container">
+    <div class="section-label" style="color:var(--gold)">吃什麼</div>
+    <h2 class="section-title reveal">餐廳清單</h2>
+    <div class="resto-grid reveal">
+      <div class="resto-card">
+        <div class="resto-day">Day 1 · 週二 · 午餐</div>
+        <div class="resto-name">🥩 燒肉INOUE 銀座本店</div>
+        <div class="resto-meta">銀座一丁目 · A4/A5黑毛和牛 · 個室完備</div>
+        <div class="resto-note urgent">⚠️ 強烈建議提前網路訂位<br>平日午餐 11:00–15:00</div>
+      </div>
+      <div class="resto-card">
+        <div class="resto-day">Day 1 · 週二 · 晚餐</div>
+        <div class="resto-name">🦆 鴨とネギ 上野御徒町</div>
+        <div class="resto-meta">上野 · 鴨肉拉麵 · 24小時營業</div>
+        <div class="resto-note">無須訂位，評分 4.5 超高，隨時可去</div>
+      </div>
+      <div class="resto-card">
+        <div class="resto-day">Day 2 · 週三 · 午餐</div>
+        <div class="resto-name">🍱 釜飯 小町通り</div>
+        <div class="resto-meta">鎌倉 · 步行即達</div>
+        <div class="resto-note">建議早點去，午餐人氣高容易排隊</div>
+      </div>
+      <div class="resto-card">
+        <div class="resto-day">Day 4 · 週五 · 午餐前段</div>
+        <div class="resto-name">🥩 とんかつ すぎ田</div>
+        <div class="resto-meta">蔵前 · 米其林必比登 9年連續 · 食べログ百名店</div>
+        <div class="resto-note urgent">⚠️ 建議開門前抵達排隊，很快客滿</div>
+      </div>
+      <div class="resto-card">
+        <div class="resto-day">Day 4 · 週五 · 午餐後段</div>
+        <div class="resto-name">🥩 敘敘苑 晴空塔 30F</div>
+        <div class="resto-meta">押上 · 高空景觀燒肉</div>
+        <div class="resto-note urgent">⚠️ 強烈建議提前網路訂位，平日到 16:00</div>
+      </div>
+      <div class="resto-card">
+        <div class="resto-day">特別推薦</div>
+        <div class="resto-name">🍵 八十八浅草</div>
+        <div class="resto-meta">淺草 · 京都八十八良葉舎東京分店</div>
+        <div class="resto-note">抹茶拿鐵 + 浅草プリン，平日 11:00–17:00</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKET -->
+<section class="ticket-section" id="ticket">
+  <div class="container">
+    <div class="section-label reveal">交通攻略</div>
+    <h2 class="section-title reveal">Tokyo Subway 72小時票使用指南</h2>
+    <p class="reveal" style="color:var(--muted);margin-bottom:32px;font-family:'Crimson Pro',serif;font-style:italic;font-size:1rem">建議從 Day 3 下午新宿搭地鐵時開始啟用，涵蓋 Day 3 下午、Day 4 全天、Day 5 上午，效益最大。</p>
+
+    <div class="ticket-grid reveal">
+      <div class="ticket-col can">
+        <div class="ticket-col-header">✅ 可用路段（東京地鐵＋都營）</div>
+        <ul class="ticket-list">
+          <li>Day 3　上野公園、Graniph atre Ueno</li>
+          <li>Day 4　淺草（銀座線）</li>
+          <li>Day 4　蔵前（大江戶線）</li>
+          <li>Day 4　晴空塔押上（半蔵門線）</li>
+          <li>Day 4　秋葉原（日比谷線）</li>
+          <li>Day 4　神谷町芝公園（日比谷線）</li>
+          <li>Day 4　澀谷（日比谷線）</li>
+          <li>Day 5　築地（日比谷線）</li>
+          <li>Day 5　明治神宮前原宿（千代田線）</li>
+          <li>Day 5　上野取行李</li>
+        </ul>
+      </div>
+      <div class="ticket-col paid">
+        <div class="ticket-col-header">💴 需自費路段</div>
+        <ul class="ticket-list">
+          <li>成田 ↔ 上野（京成特急）</li>
+          <li>台場（百合海鷗號）</li>
+          <li>Day 2 鎌倉全程（JR 各線）</li>
+          <li>Day 2 江之電全線（のりおりくん 800円 另購）</li>
+          <li>Day 3 藤澤→大船（JR）</li>
+          <li>Day 3 湘南單軌電車</li>
+          <li>Day 3 大船→新宿（JR 湘南新宿ライン）</li>
+          <li>Day 3 高円寺（JR 中央線）</li>
+          <li>Day 5 上野→成田（京成特急）</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tip-grid reveal">
+      <div class="tip-box">
+        <h4>🚌 交通小技巧</h4>
+        <ul>
+          <li>入谷住處最近站為鶯谷（非入谷站，無電梯）</li>
+          <li>住處進出建議步行到鶯谷，或直接叫 Uber</li>
+          <li>上野站有大型置物櫃，Day 1 & Day 5 寄放行李</li>
+          <li>江之電のりおりくん 可在 EMot app 事先購買</li>
+        </ul>
+      </div>
+      <div class="tip-box">
+        <h4>⏰ 關門時間速查</h4>
+        <ul>
+          <li>高円寺冰川神社：08:00–17:00</li>
+          <li>高德院大佛：最後入場 16:30</li>
+          <li>八十八浅草：平日 11:00–17:00</li>
+          <li>Hatoya's 水果三明治：11:00–16:00</li>
+          <li>Fruits de Saison：10:00–17:00</li>
+          <li>敘敘苑晴空塔午餐：平日到 16:00</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>東京・鎌倉・江之島</span> 五日旅遊手冊<br>
+  旅途愉快 &nbsp;·&nbsp; 旅行は最高の贈り物
+</footer>
+
+<script>
+// Reveal on scroll
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 80);
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.08 });
+reveals.forEach(el => observer.observe(el));
+
+// Sticky nav active state
+const sections = document.querySelectorAll('[id]');
+const navLinks = document.querySelectorAll('.sticky-nav a');
+
+const sectionObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navLinks.forEach(a => a.classList.remove('active'));
+      const active = document.querySelector(`.sticky-nav a[href="#${entry.target.id}"]`);
+      if (active) active.classList.add('active');
+    }
+  });
+}, { threshold: 0.3 });
+
+sections.forEach(s => sectionObserver.observe(s));
+</script>
+</body>
+</html>
